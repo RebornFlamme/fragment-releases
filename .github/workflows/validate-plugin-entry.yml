@@ -1,0 +1,38 @@
+name: Validate plugin entry
+
+on:
+  pull_request:
+    paths:
+      - community-plugins.json
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      # The validation script is always taken from the BASE branch, so a pull
+      # request cannot change the rules it is checked against.
+      - name: Checkout base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
+
+      - name: Checkout pull request
+        uses: actions/checkout@v4
+        with:
+          path: pr
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate community-plugins.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >
+          node base/.github/scripts/validate-plugin-entry.mjs
+          --file pr/community-plugins.json
+          --base base/community-plugins.json

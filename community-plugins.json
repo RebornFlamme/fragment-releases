@@ -1,0 +1,9 @@
+[
+  {
+    "id": "fragment-sample-plugin",
+    "name": "Sample Plugin",
+    "author": "RebornFlamme",
+    "description": "Demonstrates some of the capabilities of the Fragment API.",
+    "repo": "RebornFlamme/fragment-sample-plugin"
+  }
+]
