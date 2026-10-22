@@ -5,5 +5,12 @@
     "author": "RebornFlamme",
     "description": "Demonstrates some of the capabilities of the Fragment API.",
     "repo": "RebornFlamme/fragment-sample-plugin"
+  },
+  {
+    "id": "quick-anki",
+    "name": "Quick Anki",
+    "author": "RebornFlamme",
+    "description": "Frame a zone of a note or PDF: recto, verso, masks — it becomes an Anki card. Decks are stored in the vault and sent to Anki when finished.",
+    "repo": "RebornFlamme/fragment-quick-anki"
   }
 ]
