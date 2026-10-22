@@ -15,19 +15,19 @@ jobs:
       # The validation script is always taken from the BASE branch, so a pull
       # request cannot change the rules it is checked against.
       - name: Checkout base branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.base.sha }}
           path: base
 
       - name: Checkout pull request
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: pr
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Validate community-plugins.json
         env:
